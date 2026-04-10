@@ -15,20 +15,13 @@ This repository includes a simple Flask web application that responds with "Hell
 
 ### Running the App
 
-**Development (Windows):**
+**Windows:**
 ```powershell
-$env:FLASK_ENV="development"
 flask --app app run
 ```
 
-**Development (Linux/Mac):**
+**Linux/Mac:**
 ```bash
-export FLASK_ENV=development
-flask --app app run
-```
-
-**Production (Linux/Docker):**
-```
 gunicorn --bind 0.0.0.0:5000 app:app
 ```
 
