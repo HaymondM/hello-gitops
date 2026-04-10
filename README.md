@@ -15,14 +15,35 @@ This repository includes a simple Flask web application that responds with "Hell
 
 ### Running the App
 
-Run the application with:
+**Development (Windows):**
+```powershell
+$env:FLASK_ENV="development"
+flask --app app run
 ```
-python app.py
+
+**Development (Linux/Mac):**
+```bash
+export FLASK_ENV=development
+flask --app app run
+```
+
+**Production (Linux/Docker):**
+```
+gunicorn --bind 0.0.0.0:5000 app:app
 ```
 
 The app will start on `http://localhost:5000`. Visit the root URL (`/`) to see "Hello world".
 
+### Docker
+
+Build and run the containerized app:
+```
+docker build -t hello-world-app .
+docker run -p 5000:5000 hello-world-app
+```
+
 ### Troubleshooting
 
-- If you encounter import errors, ensure Flask is installed.
-- The app runs in debug mode by default.
+- If you encounter import errors, ensure Flask and gunicorn are installed via `pip install -r requirements.txt`.
+- Debug mode is only enabled when `FLASK_ENV=development` is set (development only).
+- The Docker image runs with a non-root user for security and includes health checks.
