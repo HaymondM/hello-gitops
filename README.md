@@ -13,14 +13,14 @@ git push → GitHub Actions (lint, test, build, push image) → values.yaml upda
 
 ## Running Locally
 
-**Local dev (Windows):**
-```powershell
-flask --app app run
+**Install dependencies:**
+```bash
+pip install -r requirements.txt
 ```
 
-**Local dev (Linux/Mac):**
+**Local dev:**
 ```bash
-gunicorn --bind 0.0.0.0:5000 app:app
+flask --app app run
 ```
 
 **Docker:**
@@ -56,7 +56,7 @@ kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.
 ### 3. Install ArgoCD
 ```bash
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml --server-side
 ```
 
 Wait for it to be ready:
@@ -87,6 +87,8 @@ Open `https://localhost:8080` and login with username `admin` and the password f
 ```bash
 kubectl apply -f argocd/application.yaml
 ```
+
+> **Note:** The ArgoCD application manifest points to this repository. If you have forked the repo, update `argocd/application.yaml` with your own `repoURL` before applying.
 
 ArgoCD will automatically sync and deploy the app. Verify in the UI or run:
 ```bash
