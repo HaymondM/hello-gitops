@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/haymondm/hello-gitops
   pullPolicy: IfNotPresent
-  tag: "sha-d7ccc2b"
+  tag: "sha-8b33114"
 
 service:
   type: ClusterIP
