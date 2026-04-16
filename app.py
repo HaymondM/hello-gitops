@@ -12,7 +12,7 @@ def hello_world():
 <title>Hello World</title>
 <style>
 body {
-    background: #1971c2;
+    background: #22c55e;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
