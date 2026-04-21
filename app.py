@@ -28,7 +28,7 @@ h1 {
 </style>
 </head>
 <body>
-<h1>Hello World!</h1>
+<h1>Hello Jamf!</h1>
 </body>
 </html>
 """
